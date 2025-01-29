@@ -1,8 +1,9 @@
 extern void problem001(int a, int b, int t);
+extern void problem002(int t);
 
 int main()
 {
-    problem001(5, 3, 1000);
+    problem002(4e6);
 
     return 0;
 }
