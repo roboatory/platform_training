@@ -1,4 +1,5 @@
 #include "helpers.hpp"
+#include <iostream>
 
 int gcd(int a, int b)
 {
@@ -16,4 +17,17 @@ int gcd(int a, int b)
 int lcm(const int a, const int b)
 {
     return (a * b) / gcd(a, b);
+}
+
+bool is_palindrome(const int original)
+{
+    int reverse = 0;
+    int a = original;
+
+    while (a != 0) {
+        reverse  = reverse * 10 + a % 10;
+        a = a / 10;
+    }
+
+    return original == reverse;
 }
