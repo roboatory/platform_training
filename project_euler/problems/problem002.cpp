@@ -1,4 +1,3 @@
-#include "helpers.hpp"
 #include <iostream>
 
 void problem002(const int t)
