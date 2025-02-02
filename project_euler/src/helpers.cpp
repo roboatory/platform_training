@@ -16,7 +16,7 @@ int gcd(int a, int b)
 
 int lcm(const int a, const int b)
 {
-    return (a * b) / gcd(a, b);
+    return (a / gcd(a, b)) * b;
 }
 
 bool is_palindrome(const int original)
