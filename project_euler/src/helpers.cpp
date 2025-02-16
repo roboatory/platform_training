@@ -1,5 +1,4 @@
 #include "helpers.hpp"
-#include <iostream>
 
 int gcd(int a, int b)
 {

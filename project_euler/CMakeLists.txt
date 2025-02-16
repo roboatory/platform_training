@@ -11,4 +11,5 @@ add_executable(project_euler main.cpp
         problems/problem003.cpp
         problems/problem004.cpp
         problems/problem005.cpp
+        problems/problem006.cpp
         src/helpers.cpp)
