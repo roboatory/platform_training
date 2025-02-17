@@ -7,11 +7,12 @@ extern void problem003(long a);
 extern void problem004(int num_digits);
 extern void problem005(int e);
 extern void problem006(int n);
+extern void problem007(int n);
 
 int main()
 {
     const auto start = std::chrono::high_resolution_clock::now();
-    problem006(100);
+    problem007(10001);
     const auto end = std::chrono::high_resolution_clock::now();
     const auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
