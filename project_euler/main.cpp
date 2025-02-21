@@ -10,12 +10,13 @@ extern void problem005(int e);
 extern void problem006(int n);
 extern void problem007(int n);
 extern void problem008(const std::string& d, int s);
+extern void problem010(int l);
 
 int main()
 {
     const auto start = std::chrono::high_resolution_clock::now();
 
-    // problem<>()
+    problem010(2e6);
 
     const auto end = std::chrono::high_resolution_clock::now();
     const auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
