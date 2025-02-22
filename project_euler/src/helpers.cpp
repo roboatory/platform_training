@@ -1,4 +1,5 @@
 #include "helpers.hpp"
+#include <algorithm>
 
 int gcd(int a, int b)
 {
@@ -13,11 +14,6 @@ int gcd(int a, int b)
     return b;
 }
 
-int lcm(const int a, const int b)
-{
-    return (a / gcd(a, b)) * b;
-}
-
 bool is_palindrome(const int original)
 {
     int reverse = 0;
@@ -29,6 +25,38 @@ bool is_palindrome(const int original)
     }
 
     return original == reverse;
+}
+
+int lcm(const int a, const int b)
+{
+    return (a / gcd(a, b)) * b;
+}
+
+long max_product(const std::vector<int>& nums, int window_size)
+{
+    long current_product = 1;
+    long largest_product;
+
+    for (int i = 0; i < window_size; ++i) {
+        current_product *= nums[i];
+    }
+
+    largest_product = current_product;
+
+    for (int i = window_size; i < nums.size(); ++i) {
+        if (nums[i - window_size] != 0) {
+            current_product = current_product * nums[i] / nums[i - window_size];
+        } else {
+            current_product = 1;
+            for (int j = i - window_size + 1; j <= i; ++j) {
+                current_product *= nums[j];
+            }
+        }
+
+        largest_product = std::max(largest_product, current_product);
+    }
+
+    return largest_product;
 }
 
 std::vector<int> prime_sieve(const int limit)
