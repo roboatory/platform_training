@@ -1,24 +1,10 @@
-#include <algorithm>
+#include "helpers.hpp"
 #include <iostream>
+#include <map>
 
-void problem003(long a)
+void problem003(const long a)
 {
-    long largest_prime_factor = 1;
+    const std::map<long, int> factors = prime_factorization(a);
 
-    while (a % 2 == 0) {
-        a /= 2;
-        largest_prime_factor = 2;
-    }
-
-    int factor = 3;
-    while (factor * factor <= a) {
-        while (a % factor == 0) {
-            a /= factor;
-            largest_prime_factor = factor;
-        }
-
-        factor += 2;
-    }
-
-    std::cout << "solution: " << std::max(largest_prime_factor, a) << std::endl;
+    std::cout << "solution: " << factors.rbegin()->first << std::endl;
 }

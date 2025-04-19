@@ -14,25 +14,12 @@ int gcd(int a, int b)
     return b;
 }
 
-bool is_palindrome(const int original)
-{
-    int reverse = 0;
-    int a = original;
-
-    while (a != 0) {
-        reverse  = reverse * 10 + a % 10;
-        a = a / 10;
-    }
-
-    return original == reverse;
-}
-
 int lcm(const int a, const int b)
 {
     return (a / gcd(a, b)) * b;
 }
 
-long max_product(const std::vector<int>& nums, int window_size)
+long max_product(const std::vector<int>& nums, const int window_size)
 {
     long current_product = 1;
     long largest_product;
@@ -83,4 +70,30 @@ std::vector<int> prime_sieve(const int limit)
     }
 
     return primes;
+}
+
+std::map<long, int> prime_factorization(long n)
+{
+    std::map<long, int> prime_factors;
+
+    while (n % 2 == 0) {
+        n /= 2;
+        ++prime_factors[2];
+    }
+
+    int factor = 3;
+    while (factor * factor <= n) {
+        while (n % factor == 0) {
+            n /= factor;
+            ++prime_factors[factor];
+        }
+
+        factor += 2;
+    }
+
+    if (n > 1) {
+        ++prime_factors[n];
+    }
+
+    return prime_factors;
 }

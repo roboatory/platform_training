@@ -1,11 +1,23 @@
-#include "helpers.hpp"
 #include <cmath>
 #include <iostream>
 
-void problem004(const int num_digits)
+bool is_palindrome(const int original)
 {
-    const int upper_limit = static_cast<int>(std::pow(10, num_digits)) - 1;
-    const int lower_limit = static_cast<int>(std::pow(10, num_digits - 1));
+    int reverse = 0;
+    int a = original;
+
+    while (a != 0) {
+        reverse  = reverse * 10 + a % 10;
+        a = a / 10;
+    }
+
+    return original == reverse;
+}
+
+void problem004(const int d)
+{
+    const int upper_limit = static_cast<int>(std::pow(10, d)) - 1;
+    const int lower_limit = static_cast<int>(std::pow(10, d - 1));
 
     int largest_palindrome = 0;
 
